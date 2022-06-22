@@ -16,3 +16,17 @@ header {
     width: 35px;
   }
 }
+@media (max-width: 769px) {
+  header {
+    justify-content: center;
+    div {
+      z-index: 2;
+      position: fixed;
+      bottom: 5px;
+      right: 5px;
+      padding: 10px;
+      background-color: $dark-red;
+      border-radius: 50%;
+    }
+  }
+}

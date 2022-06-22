@@ -30,6 +30,7 @@ function Pizzas() {
           <p className='name'>{pizza.name}</p>
           <p className='description'>{pizza.description}</p>
           <p className='price'>{pizza.price} $</p>
+          <button>+</button>
         </div>
       ))}
     </div>
