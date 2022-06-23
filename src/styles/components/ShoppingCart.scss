@@ -1,0 +1,97 @@
+@import "@styles/global/vars";
+aside {
+  z-index: 3;
+  position: relative;
+  min-width: 500px;
+  display: flex;
+  padding-top: 40px;
+  flex-direction: column;
+  align-items: center;
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    color: $orange;
+    font-size: 2rem;
+    line-height: 2rem;
+    border: none;
+    text-decoration: none;
+  }
+  .item {
+    width: 450px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1px $orange;
+    p {
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+    }
+    input {
+      justify-self: flex-start;
+      width: 40px;
+      height: fit-content;
+      background-color: transparent;
+      font-size: 2rem;
+      font-weight: 700;
+      color: white;
+      border: none;
+    }
+    .price-and-delete {
+      display: flex;
+      align-items: center;
+      p {
+        min-width: 46px;
+        font-weight: 300;
+        margin-right: 10px;
+      }
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      img {
+        width: 20px;
+      }
+    }
+  }
+  .total {
+    width: 450px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+  }
+  .pay {
+    background-color: $yellow;
+    font-size: 2rem;
+    font-weight: 700;
+    color: $dark-red;
+    border: none;
+    padding: 5px 20px 5px 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 830px) {
+  aside {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: $dark;
+    .item {
+      width: 90%;
+      max-width: 450px;
+    }
+  }
+}
