@@ -1,10 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import useShoppingCart from "@hooks/useShoppingCart.js"
 import "@styles/components/Pizzas.scss"
+import AppContext from '../context/AppContext'
 
 function Pizzas() {
-
   const [pizzas, setPizzas] = useState([])
-  // console.log(pizzas[0].name)
+
+  const { addToCart, cart } = useContext(AppContext)
+  // console.log(cart)
+
+  const handleAddToCart = (item) => {
+    addToCart(item)
+  }
 
   useEffect(() => {
     async function getPizzas() {
@@ -20,17 +27,16 @@ function Pizzas() {
     getPizzas()
   }, [])
 
-  console.table(pizzas)
 
   return (
     <div className='pizzas-container'>
       {pizzas.map(pizza => (
-        <div key={pizza.id} className="pizza" >
+        <div key={pizza.name} className="pizza" >
           <img src={pizza.img} ></img>
           <p className='name'>{pizza.name}</p>
           <p className='description'>{pizza.description}</p>
           <p className='price'>{pizza.price} $</p>
-          <button>+</button>
+          <button onClick={() => { handleAddToCart(pizza) }}>{cart.includes(pizza) ? "✓" : "+"}</button>
         </div>
       ))}
     </div>
