@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useShoppingCart from "@hooks/useShoppingCart";
+// import useShoppingCart from "@hooks/useShoppingCart";
 import deleteImg from "@img/delete.png";
 import "@styles/components/ShoppingCart.scss"
 import { useContext } from "react";
@@ -7,14 +7,20 @@ import AppContext from "../context/AppContext";
 
 function ShoppingCart() {
 
-  const { cart, deleteFromCart } = useContext(AppContext)
+  const { cart, deleteFromCart, addOneMore, deleteOneMore } = useContext(AppContext)
 
   const handleTotal = () => {
-    const reducer = (acumulator, currentValue) =>
-      acumulator + currentValue.price
-    const sum = cart.reduce(reducer, 0)
-    return sum
+    let total = 0
+    for (let i = 0; i < cart.length; i++) {
+      const cartItem = cart[i].item.price * cart[i].cantidad
+      total += cartItem
+    }
+    return total;
+
   }
+
+
+
 
 
   return (
@@ -32,11 +38,21 @@ function ShoppingCart() {
       }
 
       {cart.map(item => (
-        <div className="item" key={item.name} >
-          <input type="number" defaultValue="1"></input>
-          <p>{item.name}</p>
-          <div className="price-and-delete"><p>{item.price} $</p>
-            <button onClick={() => deleteFromCart(item)} ><img src={deleteImg} ></img></button></div>
+        <div className="item" key={item.item.name} >
+          <div className="cantidad">
+
+            <p>{item.cantidad}</p>
+            {item.cantidad > 1 ? <button onClick={() => {
+              deleteOneMore(item)
+            }
+            }>-</button> : null}
+            <button onClick={() => { addOneMore(item) }} >+</button>
+          </div>
+
+          <p>{item.item.name}</p>
+          <div className="price-and-delete">
+            <p>{item.item.price} $</p>
+            <button onClick={() => deleteFromCart(item.item)} ><img src={deleteImg} ></img></button></div>
         </div>
       ))}
 

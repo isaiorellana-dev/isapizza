@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from 'react'
-import useShoppingCart from "@hooks/useShoppingCart.js"
 import "@styles/components/Pizzas.scss"
 import AppContext from '../context/AppContext'
 
@@ -7,11 +6,7 @@ function Pizzas() {
   const [pizzas, setPizzas] = useState([])
 
   const { addToCart, cart } = useContext(AppContext)
-  // console.log(cart)
 
-  const handleAddToCart = (item) => {
-    addToCart(item)
-  }
 
   useEffect(() => {
     async function getPizzas() {
@@ -36,7 +31,7 @@ function Pizzas() {
           <p className='name'>{pizza.name}</p>
           <p className='description'>{pizza.description}</p>
           <p className='price'>{pizza.price} $</p>
-          <button onClick={() => { handleAddToCart(pizza) }}>{cart.includes(pizza) ? "✓" : "+"}</button>
+          <button onClick={() => { addToCart(pizza) }}>{cart.filter(e => e.item === pizza).length > 0 ? "✓" : "+"}</button>
         </div>
       ))}
     </div>
