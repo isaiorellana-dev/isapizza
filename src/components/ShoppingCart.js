@@ -60,7 +60,7 @@ function ShoppingCart() {
         <p>Total:</p>
         <p>{`${handleTotal()} $`}</p>
       </div>
-      <button className="pay">Pay</button>
+      <button className="pay">Ordenar</button>
     </aside>
   )
 }

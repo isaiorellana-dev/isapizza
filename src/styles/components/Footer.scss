@@ -1,0 +1,21 @@
+@import "@styles/global/vars";
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 10px 0px 20px 0px;
+  background-color: $dark;
+  a {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0px 45px 0px 45px;
+    text-decoration: none;
+    color: $yellow;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
