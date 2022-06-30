@@ -19,7 +19,22 @@ function ShoppingCart() {
 
   }
 
+  const productoToString = () => {
+    let cartString = '';
+    cart.forEach((producto) => {
+      cartString += `${producto.cantidad} ${producto.item.name}%0A`;
+    });
+    return cartString;
+  };
 
+  const msg = () =>
+    `Hola, quiero hacer un pedido:%0A${productoToString()}`;
+
+  const URL = () =>
+    `https://api.whatsapp.com/send?phone=+50495497605&text=${msg()}&source=&data=`;
+  const enviar = () => {
+    window.open(URL(), '_blank');
+  };
 
 
 
@@ -60,7 +75,10 @@ function ShoppingCart() {
         <p>Total:</p>
         <p>{`${handleTotal()} $`}</p>
       </div>
-      <button className="pay">Ordenar</button>
+
+      {cart.length > 0 && <button className="pay" onClick={() => { enviar() }}>Ordenar</button>}
+
+
     </aside>
   )
 }

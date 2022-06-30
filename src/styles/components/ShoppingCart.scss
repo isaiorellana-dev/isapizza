@@ -43,16 +43,6 @@ aside {
       }
     }
 
-    input {
-      justify-self: flex-start;
-      width: 40px;
-      height: fit-content;
-      background-color: transparent;
-      font-size: 2rem;
-      font-weight: 700;
-      color: white;
-      border: none;
-    }
     .price-and-delete {
       display: flex;
       align-items: center;
@@ -63,6 +53,7 @@ aside {
       }
     }
     button {
+      cursor: pointer;
       background-color: transparent;
       border: none;
       img {
@@ -80,6 +71,7 @@ aside {
     color: white;
   }
   .pay {
+    cursor: pointer;
     background-color: $yellow;
     font-size: 2rem;
     font-weight: 700;
@@ -88,6 +80,9 @@ aside {
     padding: 5px 20px 5px 20px;
     margin-top: 20px;
     border-radius: 8px;
+    &:hover {
+      transform: scale(1.01);
+    }
   }
 }
 
