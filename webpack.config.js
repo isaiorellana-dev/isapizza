@@ -5,6 +5,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const TerserPlugin = require("terser-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const { NetlifyPlugin } = require("netlify-webpack-plugin")
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: "./src/index.js",
@@ -65,6 +66,7 @@ module.exports = {
       filename: "[name].css",
     }),
     new CleanWebpackPlugin(),
+    new Dotenv(),
     new NetlifyPlugin({
       redirects: [
         {

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react'
 import "@styles/components/Pizzas.scss"
 import AppContext from '../context/AppContext'
-
+import Pizza from './Pizza'
 function Pizzas() {
   const [pizzas, setPizzas] = useState([])
 
@@ -26,6 +26,18 @@ function Pizzas() {
   return (
     <div className='pizzas-container'>
       {pizzas.map(pizza => (
+        <Pizza
+          key={pizza.name}
+          pizza={pizza}
+          name={pizza.name}
+          description={pizza.description}
+          price={pizza.price}
+          img={pizza.img}
+          addToCart={addToCart}
+          cart={cart}
+        />
+      ))}
+      {/* {pizzas.map(pizza => (
         <div key={pizza.name} className="pizza" >
           <img src={pizza.img} ></img>
           <p className='name'>{pizza.name}</p>
@@ -33,7 +45,7 @@ function Pizzas() {
           <p className='price'>{pizza.price} $</p>
           <button onClick={() => { addToCart(pizza) }}>{cart.filter(e => e.item === pizza).length > 0 ? "✓" : "+"}</button>
         </div>
-      ))}
+      ))} */}
     </div>
   )
 }

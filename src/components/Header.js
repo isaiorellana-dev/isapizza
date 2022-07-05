@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import cartImg from "@img/shopping-cart.png"
 import AppContext from "../context/AppContext";
 import "@styles/components/Header.scss"

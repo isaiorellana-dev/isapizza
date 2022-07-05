@@ -21,7 +21,6 @@ function useShoppingCart() {
     const cartFiltered = cart.fill({
       cantidad: item.cantidad + 1, item: item.item
     }, index, index + 1)
-    console.log(cartFiltered)
     setCart([...cartFiltered])
   }
 
